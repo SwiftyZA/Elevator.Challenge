@@ -1,8 +1,8 @@
-﻿using Elevator.Challenge.Enums;
+﻿using Elevator.Challenge.Domain.Enums;
 
-namespace Elevator.Challenge.Models
+namespace Elevator.Challenge.Domain.Models
 {
-    internal class PassengerModel
+    public class PassengerModel
     {
         public int Id { get; set; }
         public int Origin { get; set; }

@@ -1,6 +1,6 @@
-﻿namespace Elevator.Challenge.Models
+﻿namespace Elevator.Challenge.Domain.Models
 {
-    internal class ElevatorStateModel
+    public class ElevatorStateModel
     {
         public int Id { get; set; }
         public int Floor { get; set; }

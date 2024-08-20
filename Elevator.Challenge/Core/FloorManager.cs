@@ -1,5 +1,5 @@
-﻿using Elevator.Challenge.Enums;
-using Elevator.Challenge.Models;
+﻿using Elevator.Challenge.Domain.Enums;
+using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core
 {

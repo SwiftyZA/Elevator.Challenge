@@ -1,4 +1,5 @@
-﻿using Elevator.Challenge.Models;
+﻿using Elevator.Challenge.Domain.Enums;
+using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Factories
 {
@@ -15,7 +16,7 @@ namespace Elevator.Challenge.Factories
                     Id = x,
                     Origin = origin,
                     Destination = destination,
-                    TravelDirection = origin < destination ? Enums.Direction.Up : Enums.Direction.Down
+                    TravelDirection = origin < destination ? Direction.Up : Direction.Down
                 };
             });
         }

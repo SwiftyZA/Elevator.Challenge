@@ -1,5 +1,5 @@
 ﻿using Elevator.Challenge.Helpers;
-using Elevator.Challenge.Models;
+using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Services
 {

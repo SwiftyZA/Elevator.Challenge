@@ -1,8 +1,6 @@
-﻿using Elevator.Challenge.Enums;
-
-namespace Elevator.Challenge.Models
+﻿namespace Elevator.Challenge.Domain.Models
 {
-    internal class ElevatorModel
+    public class ElevatorModel
     {
         public int Id { get; set; }
         public int CurrentFloor { get; set; }
