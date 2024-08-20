@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Hosting;
 
 namespace Elevator.Challenge.Core.Services.Contracts
 {
-    public interface IElevatorDirectorService
+    public interface IElevatorDirectorService : IHostedService, IDisposable
     {
     }
 }

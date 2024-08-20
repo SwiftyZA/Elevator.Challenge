@@ -1,16 +1,17 @@
-﻿using Elevator.Challenge.Domain.Enums;
+﻿using Elevator.Challenge.Domain.Contracts;
+using Elevator.Challenge.Domain.Enums;
 using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Factories
 {
     internal class PassengerFactory
     {
-        internal static IEnumerable<PassengerModel> GeneratePassengers(int nr, int topFloorNr)
+        internal static IEnumerable<PassengerModel> GeneratePassengers(IAppSettings appSettings)
         {
-            return Enumerable.Range(0, nr).Select(x =>
+            return Enumerable.Range(0, appSettings.PassengerCount).Select(x =>
             {
-                var origin = GetRandomFloor(topFloorNr, -1);
-                var destination = GetRandomFloor(topFloorNr, origin);
+                var origin = GetRandomFloor(appSettings.TopFloorNr, -1);
+                var destination = GetRandomFloor(appSettings.TopFloorNr, origin);
                 return new PassengerModel()
                 {
                     Id = x,

@@ -1,13 +1,14 @@
 ﻿//using Elevator.Challenge.Helpers;
+using Elevator.Challenge.Core.Services.Contracts;
 using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Services
 {
-    internal class StateService
+    internal class StateService : IStateService
     {
         private bool _initialDrawDone = false;
         private bool _lastDrawDone = true;
-        internal void ReportState(StateModel state)
+        public void ReportState(StateModel state)
         {
             Console.CursorVisible = false;
             if (!_initialDrawDone)

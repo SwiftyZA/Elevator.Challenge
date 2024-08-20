@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Elevator.Challenge.Domain\Elevator.Challenge.Domain.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Elevator.Challenge.Core\Elevator.Challenge.Core.csproj" />
+    <ProjectReference Include="..\Elevator.Challenge.Domain\Elevator.Challenge.Domain.csproj" />
   </ItemGroup>
 
 </Project>

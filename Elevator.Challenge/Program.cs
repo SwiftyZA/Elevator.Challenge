@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
-//using Elevator.Challenge.Core;
+using Elevator.Challenge.Core.IoC;
+using Elevator.Challenge.Domain.Contracts;
+using Elevator.Challenge.Domain.Models;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 Console.WriteLine("Welcome to Elevator Action!");
 
@@ -49,13 +52,20 @@ while (!int.TryParse(Console.ReadLine(), out tickRate))
     Console.Write("Set the tick rate (ms): ");
 }
 
-//var director = // TEST CASES
-//               //new ElevatorDirector(5, 70, 10, 5, 500);
-//               //new ElevatorDirector(1, 20, 10, 5, 500);
-//               //new ElevatorDirector(2, 30, 10, 5, 500);
-//    new ElevatorDirector(nrOfElevators, nrOfPassengers, topFloorNr, maxPax, tickRate);
+var settings = new AppSettings
+{
+    TickRate = tickRate,
+    ElevatorCount = nrOfElevators,
+    MaxPax = maxPax,
+    TopFloorNr = topFloorNr,
+    PassengerCount = nrOfPassengers
+};
 
-//await director.StartAsync();
+var _host = Host.CreateDefaultBuilder()
+                .ConfigureServices(services =>
+                {
+                    services.AddSingleton<IAppSettings>(settings);
+                    services.AddCoreElevatorServices();
+                }).Build();
 
-
-Console.ReadLine();
+_host.Run();

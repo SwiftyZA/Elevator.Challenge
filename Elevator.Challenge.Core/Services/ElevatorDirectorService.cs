@@ -3,26 +3,31 @@ using Elevator.Challenge.Core.Factories;
 using Elevator.Challenge.Domain.Models;
 using Elevator.Challenge.Core.Services;
 using Elevator.Challenge.Core.Managers;
+using Elevator.Challenge.Core.Services.Contracts;
+using Elevator.Challenge.Domain.Contracts;
 
 namespace Elevator.Challenge.Core
 {
-    internal class ElevatorDirectorService : IDisposable
+    internal class ElevatorDirectorService : IElevatorDirectorService
     {
         private bool disposedValue;
         private List<ElevatorManager> _elevators;
         private List<FloorManager> _floorManagers;
-        private StateService _stateService;
+        private readonly IAppSettings _appSettings;
+        private IStateService _stateService;
         private Timer _timer;
 
-        public ElevatorDirectorService(int elevatorCount, int passengerCount, int nrOfFloors, int maxPax, int tickRate)
+        public ElevatorDirectorService(IAppSettings appSettings, IStateService stateService)
         {
-            _elevators = ElevatorFactory.GenerateElevators(elevatorCount, maxPax, tickRate, PickUpPassengers, GetDirective).ToList();
-            var _passengers = PassengerFactory.GeneratePassengers(passengerCount, nrOfFloors).ToList();
-            _floorManagers = FloorManagerFactory.GenerateFloorManagers(_passengers, nrOfFloors).ToList();
-            _stateService = new StateService();
+            _appSettings = appSettings;
+            _stateService = stateService;
+
+            _elevators = ElevatorFactory.GenerateElevators(appSettings, PickUpPassengers, GetDirective).ToList();
+            var _passengers = PassengerFactory.GeneratePassengers(appSettings).ToList();
+            _floorManagers = FloorManagerFactory.GenerateFloorManagers(_passengers, appSettings.TopFloorNr).ToList();
         }
 
-        public async Task StartAsync()
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
             var randomness = new Random();
             _timer = new Timer(ReportState, null, 0, 500);
@@ -47,7 +52,7 @@ namespace Elevator.Challenge.Core
             _stateService.ReportState(_state);
         }
 
-        public void Stop()
+        public async Task StopAsync(CancellationToken cancellationToken)
         {
             _elevators.ForEach(_x => _x.GracefullStop());
         }
@@ -109,5 +114,7 @@ namespace Elevator.Challenge.Core
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }
+
+        
     }
 }
