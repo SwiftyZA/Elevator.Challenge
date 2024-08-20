@@ -1,6 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Elevator.Challenge.Core;
+//using Elevator.Challenge.Core;
 
 Console.WriteLine("Welcome to Elevator Action!");
 
@@ -49,13 +49,13 @@ while (!int.TryParse(Console.ReadLine(), out tickRate))
     Console.Write("Set the tick rate (ms): ");
 }
 
-var director = // TEST CASES
-               //new ElevatorDirector(5, 70, 10, 5, 500);
-               //new ElevatorDirector(1, 20, 10, 5, 500);
-               //new ElevatorDirector(2, 30, 10, 5, 500);
-    new ElevatorDirector(nrOfElevators, nrOfPassengers, topFloorNr, maxPax, tickRate);
+//var director = // TEST CASES
+//               //new ElevatorDirector(5, 70, 10, 5, 500);
+//               //new ElevatorDirector(1, 20, 10, 5, 500);
+//               //new ElevatorDirector(2, 30, 10, 5, 500);
+//    new ElevatorDirector(nrOfElevators, nrOfPassengers, topFloorNr, maxPax, tickRate);
 
-await director.StartAsync();
+//await director.StartAsync();
 
 
 Console.ReadLine();

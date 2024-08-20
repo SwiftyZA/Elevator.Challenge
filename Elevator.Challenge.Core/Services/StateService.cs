@@ -1,7 +1,7 @@
-﻿using Elevator.Challenge.Helpers;
+﻿//using Elevator.Challenge.Helpers;
 using Elevator.Challenge.Domain.Models;
 
-namespace Elevator.Challenge.Services
+namespace Elevator.Challenge.Core.Services
 {
     internal class StateService
     {
@@ -12,7 +12,7 @@ namespace Elevator.Challenge.Services
             Console.CursorVisible = false;
             if (!_initialDrawDone)
             {
-                Picaso.DrawBuilding(state.FloorStates.Count(), state.ElevatorStates.Count());
+                //Picaso.DrawBuilding(state.FloorStates.Count(), state.ElevatorStates.Count());
                 _initialDrawDone = true;
             }
 

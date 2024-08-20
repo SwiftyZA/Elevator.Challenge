@@ -1,9 +1,9 @@
 ﻿using Elevator.Challenge.Domain.Enums;
 using Elevator.Challenge.Domain.Models;
 
-namespace Elevator.Challenge.Core
+namespace Elevator.Challenge.Core.Managers
 {
-    internal class ElevatorEngine : IDisposable
+    internal class ElevatorManager : IDisposable
     {
         private int _tickRate;
         private CancellationTokenSource _tokenSource;
@@ -36,7 +36,7 @@ namespace Elevator.Challenge.Core
             }
         }
 
-        public ElevatorEngine(ElevatorModel elevator, Func<Direction, int, int, IEnumerable<PassengerModel>> pickup, Func<int, int> getDirective, int tickRate)
+        public ElevatorManager(ElevatorModel elevator, Func<Direction, int, int, IEnumerable<PassengerModel>> pickup, Func<int, int> getDirective, int tickRate)
         {
             _elevator = elevator;
             _tickRate = tickRate;

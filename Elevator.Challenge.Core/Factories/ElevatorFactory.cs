@@ -1,12 +1,12 @@
-﻿using Elevator.Challenge.Core;
+﻿using Elevator.Challenge.Core.Managers;
 using Elevator.Challenge.Domain.Enums;
 using Elevator.Challenge.Domain.Models;
 
-namespace Elevator.Challenge.Factories
+namespace Elevator.Challenge.Core.Factories
 {
     internal static class ElevatorFactory
     {
-        internal static IEnumerable<ElevatorEngine> GenerateElevators(int nr, int maxPax, int tickRate,
+        internal static IEnumerable<ElevatorManager> GenerateElevators(int nr, int maxPax, int tickRate,
             Func<Direction, int,int, IEnumerable<PassengerModel>> pickup,
             Func<int,int> getDirective)
         {
@@ -20,7 +20,7 @@ namespace Elevator.Challenge.Factories
                         Passengers = new List<PassengerModel>(),
                     };
 
-                    return new ElevatorEngine(elevator, pickup, getDirective, tickRate);
+                    return new ElevatorManager(elevator, pickup, getDirective, tickRate);
                 });
         }
     }

@@ -1,7 +1,7 @@
 ﻿using Elevator.Challenge.Domain.Enums;
 using Elevator.Challenge.Domain.Models;
 
-namespace Elevator.Challenge.Core
+namespace Elevator.Challenge.Core.Managers
 {
     internal class FloorManager
     {

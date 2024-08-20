@@ -1,7 +1,7 @@
 ﻿using Elevator.Challenge.Domain.Enums;
 using Elevator.Challenge.Domain.Models;
 
-namespace Elevator.Challenge.Factories
+namespace Elevator.Challenge.Core.Factories
 {
     internal class PassengerFactory
     {

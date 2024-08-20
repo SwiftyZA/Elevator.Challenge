@@ -1,19 +1,20 @@
 ﻿using Elevator.Challenge.Domain.Enums;
-using Elevator.Challenge.Factories;
+using Elevator.Challenge.Core.Factories;
 using Elevator.Challenge.Domain.Models;
-using Elevator.Challenge.Services;
+using Elevator.Challenge.Core.Services;
+using Elevator.Challenge.Core.Managers;
 
 namespace Elevator.Challenge.Core
 {
-    internal class ElevatorDirector : IDisposable
+    internal class ElevatorDirectorService : IDisposable
     {
         private bool disposedValue;
-        private List<ElevatorEngine> _elevators;
+        private List<ElevatorManager> _elevators;
         private List<FloorManager> _floorManagers;
         private StateService _stateService;
         private Timer _timer;
 
-        public ElevatorDirector(int elevatorCount, int passengerCount, int nrOfFloors, int maxPax, int tickRate)
+        public ElevatorDirectorService(int elevatorCount, int passengerCount, int nrOfFloors, int maxPax, int tickRate)
         {
             _elevators = ElevatorFactory.GenerateElevators(elevatorCount, maxPax, tickRate, PickUpPassengers, GetDirective).ToList();
             var _passengers = PassengerFactory.GeneratePassengers(passengerCount, nrOfFloors).ToList();

@@ -1,7 +1,7 @@
-﻿using Elevator.Challenge.Core;
+﻿using Elevator.Challenge.Core.Managers;
 using Elevator.Challenge.Domain.Models;
 
-namespace Elevator.Challenge.Factories
+namespace Elevator.Challenge.Core.Factories
 {
     internal  static class FloorManagerFactory
     {
