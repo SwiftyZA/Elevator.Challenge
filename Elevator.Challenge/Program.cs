@@ -2,8 +2,10 @@
 using Elevator.Challenge.Core.IoC;
 using Elevator.Challenge.Domain.Contracts;
 using Elevator.Challenge.Domain.Models;
+using Elevator.Challenge.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 Console.WriteLine("Welcome to Elevator Action!");
 
@@ -52,6 +54,9 @@ while (!int.TryParse(Console.ReadLine(), out tickRate))
     Console.Write("Set the tick rate (ms): ");
 }
 
+Console.Clear();
+
+
 var settings = new AppSettings
 {
     TickRate = tickRate,
@@ -61,11 +66,16 @@ var settings = new AppSettings
     PassengerCount = nrOfPassengers
 };
 
+Picaso.DrawBuilding(settings.TopFloorNr, settings.ElevatorCount);
+
 var _host = Host.CreateDefaultBuilder()
                 .ConfigureServices(services =>
                 {
                     services.AddSingleton<IAppSettings>(settings);
                     services.AddCoreElevatorServices();
+                })
+                .ConfigureLogging(logging => {
+                    logging.SetMinimumLevel(LogLevel.Warning);
                 }).Build();
 
 _host.Run();

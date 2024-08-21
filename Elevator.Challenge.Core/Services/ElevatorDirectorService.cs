@@ -1,10 +1,9 @@
-﻿using Elevator.Challenge.Domain.Enums;
-using Elevator.Challenge.Core.Factories;
-using Elevator.Challenge.Domain.Models;
-using Elevator.Challenge.Core.Services;
+﻿using Elevator.Challenge.Core.Factories;
 using Elevator.Challenge.Core.Managers;
 using Elevator.Challenge.Core.Services.Contracts;
 using Elevator.Challenge.Domain.Contracts;
+using Elevator.Challenge.Domain.Enums;
+using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core
 {
