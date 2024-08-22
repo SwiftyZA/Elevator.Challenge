@@ -3,7 +3,7 @@ using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Managers
 {
-    internal class FloorManager
+    public class FloorManager
     {
         public int FloorNumber { get; }
         public int PassengerCount => _passengers.Count;

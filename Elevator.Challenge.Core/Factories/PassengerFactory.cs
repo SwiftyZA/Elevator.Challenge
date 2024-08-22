@@ -4,9 +4,9 @@ using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Factories
 {
-    internal class PassengerFactory
+    public class PassengerFactory
     {
-        internal static IEnumerable<PassengerModel> GeneratePassengers(IAppSettings appSettings)
+        public static IEnumerable<PassengerModel> GeneratePassengers(IAppSettings appSettings)
         {
             return Enumerable.Range(0, appSettings.PassengerCount).Select(x =>
             {

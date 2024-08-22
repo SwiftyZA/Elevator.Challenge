@@ -7,7 +7,7 @@ using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core
 {
-    internal class ElevatorDirectorService : IElevatorDirectorService
+    public class ElevatorDirectorService : IElevatorDirectorService
     {
         private bool disposedValue;
         private List<ElevatorManager> _elevators;
@@ -81,7 +81,7 @@ namespace Elevator.Challenge.Core
 
         // This could result in multiple empty elevalors heading to the same floor, but is in line with real world behavior.
         // There is some room for improvement here by keeping track of floors with an elevator en route.
-        private int GetDirective(int elevatorLocation)
+        public int GetDirective(int elevatorLocation)
         {
             var floors = _floorManagers.Where(x => x.PassengerCount > 0)
                 .Select(x =>

@@ -5,9 +5,9 @@ using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Factories
 {
-    internal static class ElevatorFactory
+    public static class ElevatorFactory
     {
-        internal static IEnumerable<ElevatorManager> GenerateElevators(IAppSettings appSettings,
+        public static IEnumerable<ElevatorManager> GenerateElevators(IAppSettings appSettings,
             Func<Direction, int,int, IEnumerable<PassengerModel>> pickup,
             Func<int,int> getDirective)
         {

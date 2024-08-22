@@ -4,7 +4,7 @@ using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Services
 {
-    internal class StateService : IStateService
+    public class StateService : IStateService
     {
         private bool _initialDrawDone = false;
         private bool _lastDrawDone = true;

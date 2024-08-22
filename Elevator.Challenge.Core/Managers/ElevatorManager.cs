@@ -3,7 +3,7 @@ using Elevator.Challenge.Domain.Models;
 
 namespace Elevator.Challenge.Core.Managers
 {
-    internal class ElevatorManager : IDisposable
+    public class ElevatorManager : IDisposable
     {
         private int _tickRate;
         private CancellationTokenSource _tokenSource;
@@ -91,16 +91,16 @@ namespace Elevator.Challenge.Core.Managers
             }
         }
 
-        internal void Start()
+        public void Start()
         {
             _engine = Task.Run(DoElevatorStuff, _tokenSource.Token);
         }
 
-        internal void GracefullStop()
+        public void GracefullStop()
         {
             _stop = true;
         }
-        internal void Stop()
+        public void Stop()
         {
             _tokenSource?.Cancel();
         }
